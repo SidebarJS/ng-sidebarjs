@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { LibService } from 'ng-sidebarjs';
+import { SidebarJSService } from 'ng-sidebarjs';
 
 @Component({
   selector: 'demo-app',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  meaning: number;
-  constructor(libService: LibService) {
-    this.meaning = libService.getMeaning();
+  sidebarName: string;
+
+  constructor(private sidebarjsService: SidebarJSService) {
+    this.sidebarName = '';
+  }
+
+  isVisible(name: string) {
+    return this.sidebarjsService.isVisible(name);
   }
 }
