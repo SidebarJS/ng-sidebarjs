@@ -12,7 +12,8 @@ export class SidebarJSService {
 
   public init(options: SidebarConfig): SidebarJS {
     const name = options.component.getAttribute('sidebarjs');
-    this.instances[name] = new SidebarJS(options);
+    const Core = SidebarJS['default'] || SidebarJS;
+    this.instances[name] = new Core(options);
     return this.instances[name];
   }
 
