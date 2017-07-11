@@ -1,1 +1,3 @@
-<sidebar-js>{{meaning}}</sidebar-js>
+<sidebar-js [sidebarjsName]="sidebarName">{{isVisible(sidebarName)}}</sidebar-js>
+
+<div>{{isVisible(sidebarName)}}</div>

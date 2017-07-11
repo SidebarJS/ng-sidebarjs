@@ -1,3 +1,3 @@
 export { SidebarJSComponent } from './src/sidebar-js/sidebar-js.component';
-export { LibService } from './src/service/lib.service';
-export { LibModule } from './src/module';
+export { SidebarJSService } from './src/sidebarjs.service';
+export { SidebarJSModule } from './src/sidebarjs.module';
