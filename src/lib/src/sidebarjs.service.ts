@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as SidebarJS from 'sidebarjs';
-import { HTMLSidebarElement, SidebarConfig } from 'sidebarjs';
+import { SidebarConfig } from 'sidebarjs';
 
 @Injectable()
 export class SidebarJSService {
