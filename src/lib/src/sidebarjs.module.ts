@@ -14,8 +14,8 @@ const COMPONENTS =  [
 ];
 
 @NgModule({
-  declarations: COMPONENTS,
-  exports: COMPONENTS
+  declarations: [...COMPONENTS],
+  exports: [...COMPONENTS]
 })
 export class SidebarJSModule {
   static forRoot(): ModuleWithProviders {
