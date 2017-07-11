@@ -8,10 +8,9 @@ const ngc = require('@angular/compiler-cli/src/main').main;
 const rollup = require('rollup');
 const uglify = require('rollup-plugin-uglify');
 const sourcemaps = require('rollup-plugin-sourcemaps');
-
+const commonjs = require('rollup-plugin-commonjs');
+const nodeResolve = require('rollup-plugin-node-resolve');
 const inlineResources = require('./inline-resources');
-
-
 const libName = require('./package.json').name;
 const rootFolder = path.join(__dirname);
 const compilationFolder = path.join(rootFolder, 'out-tsc');
@@ -66,6 +65,19 @@ return Promise.resolve()
         '@angular/core'
       ],
       plugins: [
+        nodeResolve({
+          main: true,
+          jsnext: true,
+          browser: true,
+        }),
+        commonjs({
+          namedExports: {
+            // left-hand side can be an absolute path, a path
+            // relative to the current directory, or the name
+            // of a module in node_modules
+            '/node_modules/sidebarjs/dist/sidebarjs.js': [ 'SidebarJS' ]
+          }
+        }),
         sourcemaps()
       ]
     };
