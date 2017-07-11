@@ -45,7 +45,7 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
     };
   }
 
-  private setSidebarAttributes(sidebarName: string, configDomElements: ConfigDomElements): void {
+  private setSidebarAttributes(sidebarName: string = '', configDomElements: ConfigDomElements): void {
     this.renderer.setAttribute(configDomElements.component, 'sidebarjs', sidebarName);
     this.renderer.setAttribute(configDomElements.container, 'sidebarjs-container', '');
     this.renderer.setAttribute(configDomElements.background, 'sidebarjs-background', '');
