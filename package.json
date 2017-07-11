@@ -1,18 +1,28 @@
 {
   "name": "ng-sidebarjs",
   "version": "1.0.0",
-  "description": "Library QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Create mobile sidebar/sidenav experiance in Angular",
   "main": "./bundles/ng-sidebarjs.umd.js",
   "module": "./ng-sidebarjs.es5.js",
   "es2015": "./ng-sidebarjs.js",
   "typings": "./ng-sidebarjs.d.ts",
-  "author": "",
-  "license": "MIT",
-  "repository": {},
-  "engines": {
-    "node": ">= 6.9.0",
-    "npm": ">= 3.0.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SidebarJS/ng-sidebarjs.git"
   },
+  "author": "Lorenzo D'Ianni <lorenzodianni@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SidebarJS/ng-sidebarjs/issues"
+  },
+  "homepage": "https://github.com/SidebarJS/ng-sidebarjs#readme",
+  "keywords": [
+    "sidebar",
+    "sidenav",
+    "javascript",
+    "sidebarjs",
+    "angular"
+  ],
   "scripts": {
     "clean": "rimraf out-tsc dist/*",
     "prebuild": "npm run clean",
