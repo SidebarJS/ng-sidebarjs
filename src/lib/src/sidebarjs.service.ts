@@ -47,4 +47,10 @@ export class SidebarJSService {
   public elemHasListener(elem: HTMLSidebarElement, value?: boolean): boolean {
     return SidebarJS.elemHasListener(elem, value);
   }
+
+  public destroy(sidebarName: string = ''): void {
+    if (this.instances[sidebarName]) {
+      delete this.instances[sidebarName];
+    }
+  }
 }
