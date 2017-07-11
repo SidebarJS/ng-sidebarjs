@@ -9,7 +9,7 @@ export class AppComponent {
   sidebarName: string;
 
   constructor(private sidebarjsService: SidebarJSService) {
-    this.sidebarName = '';
+    this.sidebarName = 'prova';
   }
 
   isVisible(name: string) {

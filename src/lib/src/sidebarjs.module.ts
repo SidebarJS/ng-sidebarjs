@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { SidebarJSComponent } from './sidebar-js/sidebar-js.component';
+import { SidebarJSComponent } from './sidebarjs/sidebarjs.component';
 import { SidebarJSService } from './sidebarjs.service';
 
 @NgModule({

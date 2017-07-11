@@ -1,3 +1,12 @@
-<sidebar-js [sidebarjsName]="sidebarName">{{isVisible(sidebarName)}}</sidebar-js>
+<sidebar-js>
+  Sidebar Default
+</sidebar-js>
 
-<div>{{isVisible(sidebarName)}}</div>
+<sidebar-js
+  sidebarjsName="sidebarCustomized"
+  [sidebarjsConfig]="{position: 'right'}">
+  Sidebar Customized
+</sidebar-js>
+
+<div>Sidebar Default: {{isVisible()}}</div>
+<div>Sidebar Customized: {{isVisible('sidebarCustomized')}}</div>
