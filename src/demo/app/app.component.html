@@ -1,12 +1,17 @@
 <sidebar-js>
   Sidebar Default
+  <button sidebarjsClose>Close</button>
 </sidebar-js>
 
 <sidebar-js
   sidebarjsName="sidebarCustomized"
   [sidebarjsConfig]="{position: 'right'}">
   Sidebar Customized
+  <button sidebarjsClose="sidebarCustomized">Close</button>
 </sidebar-js>
 
 <div>Sidebar Default: {{isVisible()}}</div>
 <div>Sidebar Customized: {{isVisible('sidebarCustomized')}}</div>
+
+<button sidebarjsToggle="sidebarCustomized">toggle</button>
+<button sidebarjsOpen>Open</button>
