@@ -3,14 +3,14 @@ import { HTMLSidebarElement } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
 @Directive({
-  selector: '[sidebarjs-open]'
+  selector: '[sidebarjsOpen]'
 })
 export class SidebarJSOpenDirective {
-  @Input('sidebarjs-open')
+  @Input()
   sidebarjsOpen: string;
 
   @HostListener('click', ['$event'])
-  open(event: Event) {
+  open(event: Event): void {
     if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
       this.sidebarjsService.open(this.sidebarjsOpen);
     }
