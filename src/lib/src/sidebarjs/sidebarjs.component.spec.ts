@@ -2,9 +2,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SidebarJSComponent } from './sidebarjs.component';
 import { SidebarJSService } from '../sidebarjs.service';
+import { SidebarConfig } from 'sidebarjs';
 
 class SidebarServiceStub {
-  init(sidebarConfig: any) {}
+  init(sidebarConfig: SidebarConfig) {}
   destroy(sidebarName: string) {}
 }
 
