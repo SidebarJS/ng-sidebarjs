@@ -19,7 +19,6 @@ class SidebarServiceStub {
   }
 
   toggle(sidebarName: string): void {
-    console.log('toggled');
   }
 }
 

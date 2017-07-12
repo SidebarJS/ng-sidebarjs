@@ -19,7 +19,6 @@ class SidebarServiceStub {
   }
 
   close(sidebarName: string): void {
-    console.log('closeed');
   }
 }
 
