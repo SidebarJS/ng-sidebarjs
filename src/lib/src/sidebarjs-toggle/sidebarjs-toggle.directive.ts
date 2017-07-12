@@ -1,14 +1,19 @@
 import { Directive, HostListener, Input } from '@angular/core';
+import { HTMLSidebarElement } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
 @Directive({
-  selector: '[sidebarjsToggle]'
+  selector: '[sidebarjs-toggle]'
 })
 export class SidebarJSToggleDirective {
-  @Input() sidebarjsToggle: string;
+  @Input('sidebarjs-toggle')
+  sidebarjsToggle: string;
 
-  @HostListener('click') toggle() {
-    this.sidebarjsService.toggle(this.sidebarjsToggle);
+  @HostListener('click', ['$event'])
+  toggle(event: Event) {
+    if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
+      this.sidebarjsService.toggle(this.sidebarjsToggle);
+    }
   }
 
   constructor(private sidebarjsService: SidebarJSService) {
