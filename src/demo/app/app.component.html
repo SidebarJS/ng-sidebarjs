@@ -4,6 +4,7 @@
 </sidebar-js>
 
 <sidebar-js
+  *ngIf="showCustomSidebar"
   sidebarjsName="sidebarCustomized"
   [sidebarjsConfig]="{position: 'right'}">
   Sidebar Customized
@@ -15,6 +16,7 @@
 
 <button sidebarjsOpen>Open</button>
 <button sidebarjsToggle="sidebarCustomized">toggle</button>
+<button (click)="showCustomSidebar = !showCustomSidebar">show custom sidebar</button>
 
 <button (click)="isVisibleButton = !isVisibleButton">show directive</button>
 <button *ngIf="isVisibleButton" sidebarjsToggle="sidebarCustomized">toggle customized</button>
