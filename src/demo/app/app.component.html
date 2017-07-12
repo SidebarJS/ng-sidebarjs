@@ -1,20 +1,20 @@
 <sidebar-js>
   Sidebar Default
-  <button sidebarjs-close>Close</button>
+  <button sidebarjsClose>Close</button>
 </sidebar-js>
 
 <sidebar-js
   sidebarjsName="sidebarCustomized"
   [sidebarjsConfig]="{position: 'right'}">
   Sidebar Customized
-  <button sidebarjs-close="sidebarCustomized">Close</button>
+  <button sidebarjsClose="sidebarCustomized">Close</button>
 </sidebar-js>
 
 <div>Sidebar Default: {{isVisible()}}</div>
 <div>Sidebar Customized: {{isVisible('sidebarCustomized')}}</div>
 
-<button sidebarjs-open>Open</button>
-<button sidebarjs-toggle="sidebarCustomized">toggle</button>
+<button sidebarjsOpen>Open</button>
+<button sidebarjsToggle="sidebarCustomized">toggle</button>
 
 <button (click)="isVisibleButton = !isVisibleButton">show directive</button>
-<button *ngIf="isVisibleButton" sidebarjs-toggle="sidebarCustomized">toggle customized</button>
+<button *ngIf="isVisibleButton" sidebarjsToggle="sidebarCustomized">toggle customized</button>
