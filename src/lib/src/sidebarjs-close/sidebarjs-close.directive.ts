@@ -3,14 +3,14 @@ import { HTMLSidebarElement } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
 @Directive({
-  selector: '[sidebarjs-close]'
+  selector: '[sidebarjsClose]'
 })
 export class SidebarJSCloseDirective {
-  @Input('sidebarjs-close')
+  @Input()
   sidebarjsClose: string;
 
   @HostListener('click', ['$event'])
-  close(event: Event) {
+  close(event: Event): void {
     if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
       this.sidebarjsService.close(this.sidebarjsClose);
     }

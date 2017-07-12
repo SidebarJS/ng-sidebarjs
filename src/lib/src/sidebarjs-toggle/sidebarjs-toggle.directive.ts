@@ -3,14 +3,14 @@ import { HTMLSidebarElement } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
 @Directive({
-  selector: '[sidebarjs-toggle]'
+  selector: '[sidebarjsToggle]'
 })
 export class SidebarJSToggleDirective {
-  @Input('sidebarjs-toggle')
+  @Input()
   sidebarjsToggle: string;
 
   @HostListener('click', ['$event'])
-  toggle(event: Event) {
+  toggle(event: Event): void {
     if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
       this.sidebarjsService.toggle(this.sidebarjsToggle);
     }
