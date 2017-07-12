@@ -44,6 +44,7 @@ System.config({
   packages: {
     rxjs: { defaultExtension: 'js' },
     '': { defaultExtension: 'js' },
+    sidebarjs: { defaultExtension: 'js' },
     src: {
         defaultExtension: 'js',
         meta: {
@@ -74,7 +75,8 @@ System.config({
     '@angular/router/testing': 'npm:@angular/router/bundles/router-testing.umd.js',
     '@angular/forms/testing': 'npm:@angular/forms/bundles/forms-testing.umd.js',
     'rxjs': 'npm:rxjs',
-    'src': 'src'
+    'src': 'src',
+    'sidebarjs': 'npm:sidebarjs/dist/sidebarjs.js'
   }
 });
 
