@@ -9,13 +9,13 @@ export class SidebarJSCloseDirective {
   @Input()
   sidebarjsClose: string;
 
-  @HostListener('click', ['$event'])
-  close(event: Event): void {
-    if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
-      this.sidebarjsService.close(this.sidebarjsClose);
+  @HostListener('click', ['$event.target'])
+  close(element: HTMLSidebarElement): void {
+    if (!this.sidebarService.elemHasListener(element)) {
+      this.sidebarService.close(this.sidebarjsClose);
     }
   }
 
-  constructor(private sidebarjsService: SidebarJSService) {
+  constructor(private sidebarService: SidebarJSService) {
   }
 }

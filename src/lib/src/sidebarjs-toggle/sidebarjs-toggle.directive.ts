@@ -9,13 +9,13 @@ export class SidebarJSToggleDirective {
   @Input()
   sidebarjsToggle: string;
 
-  @HostListener('click', ['$event'])
-  toggle(event: Event): void {
-    if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
-      this.sidebarjsService.toggle(this.sidebarjsToggle);
+  @HostListener('click', ['$event.target'])
+  toggle(element: HTMLSidebarElement): void {
+    if (!this.sidebarService.elemHasListener(element)) {
+      this.sidebarService.toggle(this.sidebarjsToggle);
     }
   }
 
-  constructor(private sidebarjsService: SidebarJSService) {
+  constructor(private sidebarService: SidebarJSService) {
   }
 }

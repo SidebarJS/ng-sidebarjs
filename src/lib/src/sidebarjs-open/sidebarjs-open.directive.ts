@@ -9,13 +9,13 @@ export class SidebarJSOpenDirective {
   @Input()
   sidebarjsOpen: string;
 
-  @HostListener('click', ['$event'])
-  open(event: Event): void {
-    if (!this.sidebarjsService.elemHasListener(<HTMLSidebarElement>event.target)) {
-      this.sidebarjsService.open(this.sidebarjsOpen);
+  @HostListener('click', ['$event.target'])
+  open(element: HTMLSidebarElement): void {
+    if (!this.sidebarService.elemHasListener(element)) {
+      this.sidebarService.open(this.sidebarjsOpen);
     }
   }
 
-  constructor(private sidebarjsService: SidebarJSService) {
+  constructor(private sidebarService: SidebarJSService) {
   }
 }
