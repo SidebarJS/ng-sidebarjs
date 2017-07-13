@@ -12,7 +12,7 @@ npm install ng-sidebarjs --save
 ## Demo
 *Open the demo on your device and try the touch gestures!*
 
-* <a href="https://www.webpackbin.com/bins/-KowIAML_Tti73FWyyzp" target="_blank">Simple Demo</a>
+* [Simple Demo](https://www.webpackbin.com/bins/-KowIAML_Tti73FWyyzp)
 
 ## Implementation
 ### Import Module
