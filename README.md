@@ -1,4 +1,5 @@
 [![GitHub release](https://img.shields.io/github/release/SidebarJS/ng-sidebarjs.svg)](https://github.com/SidebarJS/ng-sidebarjs/releases)
+[![npm](https://img.shields.io/npm/v/ng-sidebarjs.svg)](https://www.npmjs.com/package/ng-sidebarjs)
 
 # ng-sidebarjs
 Create mobile sidebar/sidenav experiance in Angular.
