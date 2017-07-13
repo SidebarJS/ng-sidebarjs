@@ -6,11 +6,12 @@ import { SidebarJSService } from 'ng-sidebarjs';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
-  currentTarget: {className: string, name: string, link: string};
+  currentTarget: { className: string, name: string, link: string };
 
   constructor(
     private sidebarjsService: SidebarJSService
-  ) {}
+  ) {
+  }
 
   public isVisible(name: string): boolean {
     return this.sidebarjsService.isVisible(name);
