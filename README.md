@@ -9,6 +9,11 @@ Create mobile sidebar/sidenav experiance in Angular.
 npm install ng-sidebarjs --save
 ```
 
+## Demo
+*Open the demo on your device and try the touch gestures!*
+
+* [Simple Demo](https://www.webpackbin.com/bins/-KowIAML_Tti73FWyyzp)
+
 ## Implementation
 ### Import Module
 ```js
