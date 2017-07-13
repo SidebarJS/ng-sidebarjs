@@ -1,22 +1,36 @@
+<header>
+  <div class="icon hamburger-icon" sidebarjsToggle></div>
+  <h1>SidebarJS</h1>
+  <div class="icon hamburger-icon" sidebarjsToggle="sidebarCustomized"></div>
+</header>
+
 <sidebar-js>
-  Sidebar Default
-  <button sidebarjsClose>Close</button>
+  <h3>SidebarJS</h3>
+  <nav>
+    <div>
+      <a href="https://github.com/SidebarJS/ng-sidebarjs" (click)="handleElement($event)"><div class="img github"></div>Github</a>
+      <a href="https://www.npmjs.com/package/ng-sidebarjs" (click)="handleElement($event)"><div class="img npm"></div>npm</a>
+      <a href="https://github.com/lorenzodianni" (click)="handleElement($event)"><div class="img author"></div>Author</a>
+    </div>
+  </nav>
 </sidebar-js>
 
 <sidebar-js
-  *ngIf="showCustomSidebar"
   sidebarjsName="sidebarCustomized"
   [sidebarjsConfig]="{position: 'right'}">
-  Sidebar Customized
-  <button sidebarjsClose="sidebarCustomized">Close</button>
+  <h3>Sidebar Customized</h3>
+  <nav>
+    <div>
+      <a href="https://github.com/SidebarJS/ng-sidebarjs/wiki/Setup" (click)="handleElement($event, 'sidebarCustomized')"><div class="img wiki"></div>Wiki</a>
+      <a href="https://github.com/SidebarJS/ng-sidebarjs/issues" (click)="handleElement($event, 'sidebarCustomized')"><div class="img bugs"></div>Bugs</a>
+    </div>
+  </nav>
 </sidebar-js>
 
-<div>Sidebar Default: {{isVisible()}}</div>
-<div>Sidebar Customized: {{isVisible('sidebarCustomized')}}</div>
+<div class="sidebar-info">Default Sidebar is visible: {{isVisible()}}</div>
+<div class="sidebar-info">Customized Sidebar is visible: {{isVisible('sidebarCustomized')}}</div>
 
-<button sidebarjsOpen>Open</button>
-<button sidebarjsToggle="sidebarCustomized">toggle</button>
-<button (click)="showCustomSidebar = !showCustomSidebar">show custom sidebar</button>
-
-<button (click)="isVisibleButton = !isVisibleButton">show directive</button>
-<button *ngIf="isVisibleButton" sidebarjsToggle="sidebarCustomized">toggle customized</button>
+<a *ngIf="currentTarget" target="_blank" id="selected" [href]="currentTarget.link">
+  <div class="img {{currentTarget.className}}"></div>
+  <div class="label">{{currentTarget.name}}</div>
+</a>
