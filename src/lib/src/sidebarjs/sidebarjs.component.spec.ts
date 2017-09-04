@@ -5,7 +5,7 @@ import { SidebarJSService } from '../sidebarjs.service';
 import { SidebarConfig } from 'sidebarjs';
 
 class SidebarServiceStub {
-  init(sidebarConfig: SidebarConfig) {}
+  create(sidebarConfig: SidebarConfig) {}
   destroy(sidebarName: string) {}
 }
 
@@ -77,18 +77,18 @@ describe('SidebarJSComponent', () => {
     expect(component.background.nativeElement.attributes['sidebarjs-background']).toBeDefined();
   });
 
-  it('should invoke sidebarService.init', () => {
-    spyOn(component['sidebarService'], 'init').and.callThrough();
+  it('should invoke sidebarService.create', () => {
+    spyOn(component['sidebarService'], 'create').and.callThrough();
     component.ngAfterContentInit();
-    expect(component['sidebarService']['init']).toHaveBeenCalledWith({
+    expect(component['sidebarService']['create']).toHaveBeenCalledWith({
       component: component.component.nativeElement,
       container: component.container.nativeElement,
       background: component.background.nativeElement
     });
   });
 
-  it('should invoke sidebarService.init with custom SidebarConfig', () => {
-    spyOn(component['sidebarService'], 'init').and.callThrough();
+  it('should invoke sidebarService.create with custom SidebarConfig', () => {
+    spyOn(component['sidebarService'], 'create').and.callThrough();
     component.sidebarjsConfig = {position: 'right'};
     component.ngAfterContentInit();
     const config = Object.assign({}, {
@@ -96,7 +96,7 @@ describe('SidebarJSComponent', () => {
       container: component.container.nativeElement,
       background: component.background.nativeElement
     }, component.sidebarjsConfig);
-    expect(component['sidebarService']['init']).toHaveBeenCalledWith(config);
+    expect(component['sidebarService']['create']).toHaveBeenCalledWith(config);
   });
 
   it('should invoke sidebarService.destroy', () => {
