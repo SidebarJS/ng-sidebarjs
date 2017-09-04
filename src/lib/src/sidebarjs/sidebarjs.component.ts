@@ -1,5 +1,4 @@
 import { AfterContentInit, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
-import * as SidebarJS from 'sidebarjs';
 import { SidebarConfig } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
@@ -30,7 +29,7 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
   ngAfterContentInit() {
     const configDomElements = this.defineConfigDomElements();
     this.setSidebarAttributes(this.sidebarjsName, configDomElements);
-    this.sidebarService.init(Object.assign({}, this.sidebarjsConfig, configDomElements));
+    this.sidebarService.create(Object.assign({}, this.sidebarjsConfig, configDomElements));
   }
 
   ngOnDestroy() {

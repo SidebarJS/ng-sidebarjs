@@ -79,6 +79,6 @@
     "zone.js": "^0.8.4"
   },
   "dependencies": {
-    "sidebarjs": "~2.2.0"
+    "sidebarjs": "~3.1.0"
   }
 }
