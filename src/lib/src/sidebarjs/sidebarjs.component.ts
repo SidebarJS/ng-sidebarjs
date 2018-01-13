@@ -5,7 +5,7 @@ import { SidebarJSService } from '../sidebarjs.service';
 interface ConfigDomElements {
   component: HTMLElement;
   container: HTMLElement;
-  background: HTMLElement;
+  backdrop: HTMLElement;
 }
 
 @Component({
@@ -18,7 +18,7 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
   @Input() sidebarjsConfig: SidebarConfig;
   @ViewChild('component') component: ElementRef;
   @ViewChild('container') container: ElementRef;
-  @ViewChild('background') background: ElementRef;
+  @ViewChild('backdrop') backdrop: ElementRef;
 
   constructor(
     private sidebarService: SidebarJSService,
@@ -40,13 +40,13 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
     return {
       component: this.component.nativeElement,
       container: this.container.nativeElement,
-      background: this.background.nativeElement,
+      backdrop: this.backdrop.nativeElement,
     };
   }
 
   private setSidebarAttributes(sidebarName: string = '', configDomElements: ConfigDomElements): void {
     this.renderer.setAttribute(configDomElements.component, 'sidebarjs', sidebarName);
     this.renderer.setAttribute(configDomElements.container, 'sidebarjs-container', '');
-    this.renderer.setAttribute(configDomElements.background, 'sidebarjs-background', '');
+    this.renderer.setAttribute(configDomElements.backdrop, 'sidebarjs-backdrop', '');
   }
 }

@@ -31,7 +31,7 @@ describe('SidebarJSComponent', () => {
   });
 
   it('should invoke defineConfigDomElements', () => {
-    spyOn(component, 'defineConfigDomElements').and.callThrough();
+    spyOn<any>(component, 'defineConfigDomElements').and.callThrough();
     component.ngAfterContentInit();
     expect(component['defineConfigDomElements']).toHaveBeenCalled();
   });
@@ -43,12 +43,12 @@ describe('SidebarJSComponent', () => {
     expect(baseConfigDomElements.component).toBe(component.component.nativeElement);
     expect(baseConfigDomElements.container).toBeDefined();
     expect(baseConfigDomElements.container).toBe(component.container.nativeElement);
-    expect(baseConfigDomElements.background).toBeDefined();
-    expect(baseConfigDomElements.background).toBe(component.background.nativeElement);
+    expect(baseConfigDomElements.backdrop).toBeDefined();
+    expect(baseConfigDomElements.backdrop).toBe(component.backdrop.nativeElement);
   });
 
   it('should invoke setSidebarAttributes', () => {
-    spyOn(component, 'setSidebarAttributes').and.callThrough();
+    spyOn<any>(component, 'setSidebarAttributes').and.callThrough();
     component.ngAfterContentInit();
     expect(component['setSidebarAttributes']).toHaveBeenCalled();
   });
@@ -57,11 +57,11 @@ describe('SidebarJSComponent', () => {
     component['setSidebarAttributes'](component.sidebarjsName, {
       component: component.component.nativeElement,
       container: component.container.nativeElement,
-      background: component.background.nativeElement
+      backdrop: component.backdrop.nativeElement
     });
     expect(component.component.nativeElement.attributes['sidebarjs']).toBeDefined();
     expect(component.container.nativeElement.attributes['sidebarjs-container']).toBeDefined();
-    expect(component.background.nativeElement.attributes['sidebarjs-background']).toBeDefined();
+    expect(component.backdrop.nativeElement.attributes['sidebarjs-backdrop']).toBeDefined();
   });
 
   it('should set sidebar core attributes with custom name', () => {
@@ -69,12 +69,12 @@ describe('SidebarJSComponent', () => {
     component['setSidebarAttributes'](component.sidebarjsName, {
       component: component.component.nativeElement,
       container: component.container.nativeElement,
-      background: component.background.nativeElement
+      backdrop: component.backdrop.nativeElement
     });
     expect(component.component.nativeElement.attributes['sidebarjs']).toBeDefined();
     expect(component.component.nativeElement.attributes['sidebarjs'].value).toBe(component.sidebarjsName);
     expect(component.container.nativeElement.attributes['sidebarjs-container']).toBeDefined();
-    expect(component.background.nativeElement.attributes['sidebarjs-background']).toBeDefined();
+    expect(component.backdrop.nativeElement.attributes['sidebarjs-backdrop']).toBeDefined();
   });
 
   it('should invoke sidebarService.create', () => {
@@ -83,7 +83,7 @@ describe('SidebarJSComponent', () => {
     expect(component['sidebarService']['create']).toHaveBeenCalledWith({
       component: component.component.nativeElement,
       container: component.container.nativeElement,
-      background: component.background.nativeElement
+      backdrop: component.backdrop.nativeElement
     });
   });
 
@@ -94,7 +94,7 @@ describe('SidebarJSComponent', () => {
     const config = Object.assign({}, {
       component: component.component.nativeElement,
       container: component.container.nativeElement,
-      background: component.background.nativeElement
+      backdrop: component.backdrop.nativeElement
     }, component.sidebarjsConfig);
     expect(component['sidebarService']['create']).toHaveBeenCalledWith(config);
   });
