@@ -5,13 +5,13 @@ import * as SidebarJS from 'sidebarjs';
 const createSidebar = (sidebarName: string = '') => {
   const component = document.createElement('div');
   const container = document.createElement('div');
-  const background = document.createElement('div');
+  const backdrop = document.createElement('div');
   component.setAttribute('sidebarjs', sidebarName);
   container.setAttribute('sidebarjs-container', '');
-  background.setAttribute('sidebarjs-background', '');
+  backdrop.setAttribute('sidebarjs-backdrop', '');
   component.appendChild(container);
-  component.appendChild(background);
-  return {component, container, background};
+  component.appendChild(backdrop);
+  return {component, container, backdrop};
 };
 
 describe('SidebarJSService', () => {
