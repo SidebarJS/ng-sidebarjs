@@ -28,18 +28,18 @@ describe('SidebarJSToggleDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed
+      .configureTestingModule({
         declarations: [TestComponent, SidebarJSToggleDirective],
         providers: [{provide: SidebarJSService, useClass: SidebarServiceStub}]
       })
-      .compileComponents();
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(TestComponent);
+        component = fixture.componentInstance;
+        el = fixture.debugElement;
+      });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
-    el = fixture.debugElement;
-  });
 
   it('should create an instance', () => {
     const directive = new SidebarJSToggleDirective(new SidebarServiceStub() as SidebarJSService);
@@ -52,7 +52,7 @@ describe('SidebarJSToggleDirective', () => {
     const element = base.nativeElement;
     spyOn(directive['__proto__'], 'toggle');
     base.triggerEventHandler('click', {target: element});
-    expect(directive['__proto__'].toggle).toHaveBeenCalledWith(element);
+    expect(directive['__proto__'].toggle).toHaveBeenCalledTimes(1);
   });
 
   it('should call service action', () => {
