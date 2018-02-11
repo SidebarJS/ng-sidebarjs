@@ -1,6 +1,6 @@
 {
   "name": "ng-sidebarjs",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Create mobile sidebar/sidenav experiance in Angular",
   "main": "./bundles/ng-sidebarjs.umd.js",
   "module": "./ng-sidebarjs.es5.js",
