@@ -4,7 +4,7 @@
   <div class="icon hamburger-icon" sidebarjsToggle="sidebarCustomized"></div>
 </header>
 
-<sidebar-js>
+<sidebar-js (open)="onSidebarOpen()" (close)="onSidebarClose()" (changeVisibility)="onChangeSidebarVisibility($event)">
   <h3>SidebarJS</h3>
   <nav>
     <div>
@@ -17,7 +17,10 @@
 
 <sidebar-js
   sidebarjsName="sidebarCustomized"
-  [sidebarjsConfig]="{position: 'right', backdropOpacity: 1}">
+  [sidebarjsConfig]="{position: 'right', backdropOpacity: 1}"
+  (open)="onSidebarOpen()"
+  (close)="onSidebarClose()"
+  (changeVisibility)="onChangeSidebarVisibility($event)">
   <h3>Sidebar Customized</h3>
   <nav>
     <div>

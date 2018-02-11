@@ -5,8 +5,11 @@ import { SidebarJSService } from '../sidebarjs.service';
 import { SidebarConfig } from 'sidebarjs';
 
 class SidebarServiceStub {
-  create(sidebarConfig: SidebarConfig) {}
-  destroy(sidebarName: string) {}
+  create(sidebarConfig: SidebarConfig) {
+  }
+
+  destroy(sidebarName: string) {
+  }
 }
 
 describe('SidebarJSComponent', () => {
@@ -14,17 +17,17 @@ describe('SidebarJSComponent', () => {
   let fixture: ComponentFixture<SidebarJSComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed
+      .configureTestingModule({
         declarations: [SidebarJSComponent],
         providers: [{provide: SidebarJSService, useClass: SidebarServiceStub}]
       })
-      .compileComponents();
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(SidebarJSComponent);
+        component = fixture.componentInstance;
+      });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SidebarJSComponent);
-    component = fixture.componentInstance;
-  });
 
   it('should create component', () => {
     expect(component).toBeDefined();
@@ -80,23 +83,7 @@ describe('SidebarJSComponent', () => {
   it('should invoke sidebarService.create', () => {
     spyOn(component['sidebarService'], 'create').and.callThrough();
     component.ngAfterContentInit();
-    expect(component['sidebarService']['create']).toHaveBeenCalledWith({
-      component: component.component.nativeElement,
-      container: component.container.nativeElement,
-      backdrop: component.backdrop.nativeElement
-    });
-  });
-
-  it('should invoke sidebarService.create with custom SidebarConfig', () => {
-    spyOn(component['sidebarService'], 'create').and.callThrough();
-    component.sidebarjsConfig = {position: 'right'};
-    component.ngAfterContentInit();
-    const config = Object.assign({}, {
-      component: component.component.nativeElement,
-      container: component.container.nativeElement,
-      backdrop: component.backdrop.nativeElement
-    }, component.sidebarjsConfig);
-    expect(component['sidebarService']['create']).toHaveBeenCalledWith(config);
+    expect(component['sidebarService']['create']).toHaveBeenCalledTimes(1);
   });
 
   it('should invoke sidebarService.destroy', () => {

@@ -28,18 +28,18 @@ describe('SidebarJSOpenDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed
+      .configureTestingModule({
         declarations: [TestComponent, SidebarJSOpenDirective],
         providers: [{provide: SidebarJSService, useClass: SidebarServiceStub}]
       })
-      .compileComponents();
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(TestComponent);
+        component = fixture.componentInstance;
+        el = fixture.debugElement;
+      })
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
-    component = fixture.componentInstance;
-    el = fixture.debugElement;
-  });
 
   it('should create an instance', () => {
     const directive = new SidebarJSOpenDirective(new SidebarServiceStub() as SidebarJSService);

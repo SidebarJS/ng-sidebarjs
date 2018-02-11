@@ -1,4 +1,7 @@
-import { AfterContentInit, Component, ElementRef, Input, OnDestroy, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterContentInit, Component, ElementRef, EventEmitter, Input, OnDestroy, Output, Renderer2,
+  ViewChild
+} from '@angular/core';
 import { SidebarConfig } from 'sidebarjs';
 import { SidebarJSService } from '../sidebarjs.service';
 
@@ -16,6 +19,9 @@ interface ConfigDomElements {
 export class SidebarJSComponent implements AfterContentInit, OnDestroy {
   @Input() sidebarjsName: string;
   @Input() sidebarjsConfig: SidebarConfig;
+  @Output() open: EventEmitter<void> = new EventEmitter();
+  @Output() close: EventEmitter<void> = new EventEmitter();
+  @Output() changeVisibility: EventEmitter<{isVisible: boolean}> = new EventEmitter();
   @ViewChild('component') component: ElementRef;
   @ViewChild('container') container: ElementRef;
   @ViewChild('backdrop') backdrop: ElementRef;
@@ -27,9 +33,22 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
   }
 
   ngAfterContentInit() {
-    const configDomElements = this.defineConfigDomElements();
-    this.setSidebarAttributes(this.sidebarjsName, configDomElements);
-    this.sidebarService.create(Object.assign({}, this.sidebarjsConfig, configDomElements));
+    const userConfig = this.sidebarjsConfig;
+    const baseConfig = this.defineConfigDomElements();
+    this.setSidebarAttributes(this.sidebarjsName, baseConfig);
+    this.sidebarService.create({
+      ...userConfig,
+      ...baseConfig,
+      onOpen: () => {
+        this.open.emit();
+      },
+      onClose: () => {
+        this.close.emit();
+      },
+      onChangeVisibility: (changes) => {
+        this.changeVisibility.emit(changes);
+      },
+    });
   }
 
   ngOnDestroy() {
@@ -44,9 +63,9 @@ export class SidebarJSComponent implements AfterContentInit, OnDestroy {
     };
   }
 
-  private setSidebarAttributes(sidebarName: string = '', configDomElements: ConfigDomElements): void {
-    this.renderer.setAttribute(configDomElements.component, 'sidebarjs', sidebarName);
-    this.renderer.setAttribute(configDomElements.container, 'sidebarjs-container', '');
-    this.renderer.setAttribute(configDomElements.backdrop, 'sidebarjs-backdrop', '');
+  private setSidebarAttributes(sidebarName: string = '', baseConfig: ConfigDomElements): void {
+    this.renderer.setAttribute(baseConfig.component, 'sidebarjs', sidebarName);
+    this.renderer.setAttribute(baseConfig.container, 'sidebarjs-container', '');
+    this.renderer.setAttribute(baseConfig.backdrop, 'sidebarjs-backdrop', '');
   }
 }

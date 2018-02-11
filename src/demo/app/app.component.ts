@@ -17,6 +17,18 @@ export class AppComponent {
     return this.sidebarjsService.isVisible(name);
   }
 
+  public onSidebarOpen() {
+    console.log('is open');
+  }
+
+  public onSidebarClose() {
+    console.log('is close');
+  }
+
+  public onChangeSidebarVisibility(event: {isVisible: boolean}) {
+    console.log(event);
+  }
+
   public handleElement(event: Event, sidebarName?: string): void {
     const {innerText, href} = event.target as HTMLLinkElement;
     event.preventDefault();
