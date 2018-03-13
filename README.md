@@ -12,7 +12,40 @@ npm install ng-sidebarjs --save
 ## Demo
 *Open the demo on your device and try the touch gestures!*
 
-* [Simple Demo](https://embed.plnkr.co/Thv7HW/)
+* [Simple Demo](https://stackblitz.com/edit/angular-skpdxr)
+
+## Options
+```html
+<sidebar-js
+  // Optional | Required only for multiple sidebarjs
+  [sidebarjsName]="'myCustomName'"
+  
+  // Optional
+  [sidebarjsConfig]="{
+    // Minimum swipe in px required to trigger listener: open
+    documentMinSwipeX?: 10,
+    // Range in px where document is listening for gesture: open
+    documentSwipeRange?: 40,
+    // Open and close sidebar with swipe gestures
+    nativeSwipe?: true,
+    // Enable/Disable open on swipe
+    nativeSwipeOpen?: true,
+    // Sidebar position, accepted values: left|right
+    position?: 'left',
+    // Backdrop opacity on sidebar open
+    backdropOpacity?: 0.3,
+  }"
+  
+  // Optional | Function called after sidebar is open
+  (open)="onOpenSidebar()"
+  
+  // Optional | Function called after sidebar is close
+  (close)="onCloseSidebar()"
+  
+  // Optional | Function called when sidebar change visibility
+  (changeVisibility)="onChangeVisibility($event)">
+</sidebar-js>
+```
 
 ## Implementation
 ### Import Module
