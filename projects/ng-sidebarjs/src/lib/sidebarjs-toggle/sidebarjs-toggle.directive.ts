@@ -1,6 +1,5 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import { HTMLSidebarElement } from "sidebarjs";
-import './../si'
+import { HTMLSidebarElement, SidebarService } from "sidebarjs";
 
 @Directive({
   selector: '[ngSidebarjsToggle]'
@@ -8,7 +7,7 @@ import './../si'
 export class SidebarjsToggleDirective {
 
   @Input()
-  sidebarjsToggle: string;
+  sidebarjsToggle = '';
 
   @HostListener('click', ['$event.target'])
   toggle(element: HTMLSidebarElement): void {
@@ -19,5 +18,4 @@ export class SidebarjsToggleDirective {
 
   constructor(private sidebarService: SidebarService) {
   }
-
 }
