@@ -1,4 +1,9 @@
-<button (click)="sidebarService.open()">toggle</button>
+<button sidebarjsToggle>toggle</button>
 
-<ng-sidebarjs></ng-sidebarjs>
+<sidebarjs
+  (changeVisibility)="onEvent($event)"
+  (open)="onEvent($event)"
+  (close)="onEvent($event)">
+  prova
+</sidebarjs>
 

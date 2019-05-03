@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SidebarService } from 'sidebarjs';
 import { SidebarjsComponent } from './sidebarjs/sidebarjs.component';
-import { SidebarService } from "sidebarjs";
 import { SidebarjsToggleDirective } from './sidebarjs-toggle/sidebarjs-toggle.directive';
 
 @NgModule({

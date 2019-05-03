@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SidebarService } from "ng-sidebarjs";
+import { SidebarConfig } from 'sidebarjs';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +8,15 @@ import { SidebarService } from "ng-sidebarjs";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public sidebarConfig: SidebarConfig = {nativeSwipe: false};
+
   constructor(
     public readonly sidebarService: SidebarService
   ) {
+    console.log(this.sidebarService);
+  }
 
-    console.log(sidebarService);
+  onEvent(e) {
+    console.log(e);
   }
 }
