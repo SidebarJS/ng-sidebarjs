@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sidebarjs": {
+    "demo-sidebarjs": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sidebarjs",
+            "outputPath": "dist/demo-sidebarjs",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sidebarjs:build"
+            "browserTarget": "demo-sidebarjs:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sidebarjs:build:production"
+              "browserTarget": "demo-sidebarjs:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sidebarjs:build"
+            "browserTarget": "demo-sidebarjs:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "sidebarjs-e2e": {
+    "demo-sidebarjs-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sidebarjs:serve"
+            "devServerTarget": "demo-sidebarjs:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sidebarjs:serve:production"
+              "devServerTarget": "demo-sidebarjs:serve:production"
             }
           }
         },
@@ -134,7 +134,42 @@
           }
         }
       }
+    },
+    "ng-sidebarjs": {
+      "root": "projects/ng-sidebarjs",
+      "sourceRoot": "projects/ng-sidebarjs/src",
+      "projectType": "library",
+      "prefix": "ng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng-sidebarjs/tsconfig.lib.json",
+            "project": "projects/ng-sidebarjs/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-sidebarjs/src/test.ts",
+            "tsConfig": "projects/ng-sidebarjs/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-sidebarjs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-sidebarjs/tsconfig.lib.json",
+              "projects/ng-sidebarjs/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "sidebarjs"
+  "defaultProject": "demo-sidebarjs"
 }

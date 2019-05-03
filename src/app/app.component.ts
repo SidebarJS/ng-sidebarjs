@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarService } from "ng-sidebarjs";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'sidebarjs';
+  constructor(
+    public readonly sidebarService: SidebarService
+  ) {
+
+    console.log(sidebarService);
+  }
 }
