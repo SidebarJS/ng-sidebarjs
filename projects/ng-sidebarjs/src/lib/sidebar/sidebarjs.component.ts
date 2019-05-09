@@ -12,7 +12,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import { SidebarConfig, SidebarService } from 'sidebarjs';
+import { SidebarjsService, SidebarConfig } from '../sidebarjs.service';
 
 @Component({
   selector: 'sidebarjs',
@@ -24,7 +24,7 @@ import { SidebarConfig, SidebarService } from 'sidebarjs';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarComponent implements AfterContentInit, OnDestroy {
+export class SidebarjsComponent implements AfterContentInit, OnDestroy {
 
   @Input() sidebarjsName = '';
   @Input() sidebarjsConfig: SidebarConfig = {};
@@ -38,7 +38,7 @@ export class SidebarComponent implements AfterContentInit, OnDestroy {
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly sidebarService: SidebarService,
+    private readonly sidebarjsService: SidebarjsService,
     private readonly renderer: Renderer2,
     private readonly changeDetectorRef: ChangeDetectorRef,
   ) {
@@ -50,7 +50,7 @@ export class SidebarComponent implements AfterContentInit, OnDestroy {
     this.renderer.setAttribute(baseConfig.component, 'sidebarjs', this.sidebarjsName);
     this.renderer.setAttribute(baseConfig.container, 'sidebarjs-container', '');
     this.renderer.setAttribute(baseConfig.backdrop, 'sidebarjs-backdrop', '');
-    this.sidebarService.create({
+    this.sidebarjsService.create({
       ...this.sidebarjsConfig,
       ...baseConfig,
       onOpen: () => this.open.emit(),
@@ -61,7 +61,7 @@ export class SidebarComponent implements AfterContentInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sidebarService.destroy(this.sidebarjsName);
+    this.sidebarjsService.destroy(this.sidebarjsName);
   }
 
   private defineConfigDomElements() {

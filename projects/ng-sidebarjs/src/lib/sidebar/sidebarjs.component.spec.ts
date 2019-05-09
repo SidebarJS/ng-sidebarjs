@@ -1,14 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarjsComponent } from '../sidebar/sidebarjs.component';
+import { SidebarjsComponent } from './sidebarjs.component';
 import { SidebarjsService } from '../sidebarjs.service';
-
-const SidebarjsMock = {
-  create(config) {
-  },
-  destroy(name) {
-  }
-};
+import { SidebarjsMock } from '../sidebarjs.service.spec';
 
 describe('SidebarjsComponent', () => {
   let component: SidebarjsComponent;

@@ -10,7 +10,7 @@ import { SidebarjsModule } from 'ng-sidebarjs';
   ],
   imports: [
     SidebarjsModule.forRoot(),
-    BrowserModule
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
