@@ -1,6 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidebarjsComponent } from './sidebarjs.component';
+import { SidebarjsComponent } from '../sidebar/sidebarjs.component';
+import { SidebarjsService } from '../sidebarjs.service';
+
+const SidebarjsMock = {
+  create(config) {
+  },
+  destroy(name) {
+  }
+};
 
 describe('SidebarjsComponent', () => {
   let component: SidebarjsComponent;
@@ -8,7 +16,8 @@ describe('SidebarjsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarjsComponent ]
+      declarations: [SidebarjsComponent],
+      providers: [{provide: SidebarjsService, useFactory: () => SidebarjsMock}]
     })
     .compileComponents();
   }));

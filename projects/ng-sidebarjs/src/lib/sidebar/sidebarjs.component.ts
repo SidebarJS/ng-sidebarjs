@@ -24,7 +24,7 @@ import { SidebarConfig, SidebarService } from 'sidebarjs';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarjsComponent implements AfterContentInit, OnDestroy {
+export class SidebarComponent implements AfterContentInit, OnDestroy {
 
   @Input() sidebarjsName = '';
   @Input() sidebarjsConfig: SidebarConfig = {};
