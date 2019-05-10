@@ -13,9 +13,13 @@ class TestComponent {
 }
 
 describe('SidebarjsOpen', () => {
+  let service: SidebarjsService;
   let component: TestComponent;
   let fixture: ComponentFixture<TestComponent>;
   let elementsWithDirective: DebugElement[];
+  let spyOpen: jasmine.Spy;
+  let spyElemHasListener: jasmine.Spy;
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,10 +31,12 @@ describe('SidebarjsOpen', () => {
   });
 
   beforeEach(() => {
+    service = TestBed.get(SidebarjsService);
     fixture = TestBed.createComponent(TestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     elementsWithDirective = fixture.debugElement.queryAll(By.directive(SidebarjsOpenDirective));
+    spyOpen = spyOn(service, 'open');
   });
 
   it('should have 2 elements with directive', () => {
@@ -38,8 +44,19 @@ describe('SidebarjsOpen', () => {
   });
 
   it('should open sidebar', () => {
-    // todo
-    console.log(elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click')));
-    console.log(elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click')));
+    spyElemHasListener = spyOn(service, 'elemHasListener').and.returnValue(false);
+    elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click'));
+    elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click'));
+    expect(spyOpen).toHaveBeenCalledTimes(2);
+    expect(spyOpen.calls.allArgs()).toEqual([[''], ['fooSidebar']]);
+    expect(spyElemHasListener).toHaveBeenCalledTimes(2);
+  });
+
+  it('should not invoke service.open if element has native listener', () => {
+    spyElemHasListener = spyOn(service, 'elemHasListener').and.returnValue(true);
+    elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click'));
+    elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click'));
+    expect(spyOpen).toHaveBeenCalledTimes(0);
+    expect(spyElemHasListener).toHaveBeenCalledTimes(2);
   });
 });
