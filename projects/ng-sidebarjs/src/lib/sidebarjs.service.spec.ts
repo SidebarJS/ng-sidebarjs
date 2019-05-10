@@ -6,6 +6,7 @@ export const SidebarjsMock = {
   elemHasListener: (element) => 'sidebarjsMock',
   open: (name) => 'sidebarjsMock',
   close: (name) => 'sidebarjsMock',
+  toggle: (name) => 'sidebarjsMock',
   destroy: (name) => 'sidebarjsMock'
 };
 
