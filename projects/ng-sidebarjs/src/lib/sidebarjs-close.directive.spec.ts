@@ -37,6 +37,7 @@ describe('SidebarjsClose', () => {
     fixture.detectChanges();
     elementsWithDirective = fixture.debugElement.queryAll(By.directive(SidebarjsCloseDirective));
     spyClose = spyOn(service, 'close');
+    spyElemHasListener = spyOn(service, 'elemHasListener').and.returnValue(false);
   });
 
   it('should have 2 elements with directive', () => {
@@ -44,7 +45,6 @@ describe('SidebarjsClose', () => {
   });
 
   it('should close sidebar', () => {
-    spyElemHasListener = spyOn(service, 'elemHasListener').and.returnValue(false);
     elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click'));
     elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click'));
     expect(spyClose).toHaveBeenCalledTimes(2);
@@ -53,10 +53,18 @@ describe('SidebarjsClose', () => {
   });
 
   it('should not invoke service.close if element has native listener', () => {
-    spyElemHasListener = spyOn(service, 'elemHasListener').and.returnValue(true);
+    spyElemHasListener.and.returnValue(true);
     elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click'));
     elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click'));
     expect(spyClose).toHaveBeenCalledTimes(0);
     expect(spyElemHasListener).toHaveBeenCalledTimes(2);
+  });
+
+  it('should destroy listener', () => {
+    fixture.destroy();
+    elementsWithDirective[0].nativeElement.dispatchEvent(new Event('click'));
+    elementsWithDirective[1].nativeElement.dispatchEvent(new Event('click'));
+    expect(spyClose).toHaveBeenCalledTimes(0);
+    expect(spyElemHasListener).toHaveBeenCalledTimes(0);
   });
 });
