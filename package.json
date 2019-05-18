@@ -7,6 +7,7 @@
     "build": "ng build ng-sidebarjs",
     "test": "ng test ng-sidebarjs",
     "lint": "ng lint ng-sidebarjs",
+    "release": "npm run build && cd dist/ng-sidebarjs && npm publish",
     "e2e": "ng e2e"
   },
   "private": true,
