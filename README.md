@@ -1,27 +1,83 @@
-# Sidebarjs
+[![GitHub release](https://img.shields.io/github/release/SidebarJS/ng-sidebarjs.svg)](https://github.com/SidebarJS/ng-sidebarjs/releases)
+[![npm](https://img.shields.io/npm/v/ng-sidebarjs.svg)](https://www.npmjs.com/package/ng-sidebarjs)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+# ng-sidebarjs
+Create mobile sidebar/sidenav experiance in Angular.
+> Are you looking for a version with AngularJS? Try [angular-sidebarjs](https://github.com/SidebarJS/angular-sidebarjs)
 
-## Development server
+```ssh
+npm install ng-sidebarjs --save
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Demo
+*Open the demo on your device and try the touch gestures!*
 
-## Code scaffolding
+* [Simple Demo](https://stackblitz.com/edit/ng-sidebarjs)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Options
+```html
+<sidebarjs-element
+  // Optional | Required only for multiple sidebarjs
+  [sidebarjsName]="'myCustomName'"
+  
+  // Optional
+  [sidebarjsConfig]="{
+    // Check https://github.com/SidebarJS/sidebarjs#options for all available options
+  }"
+  
+  // Optional | Function called after sidebar is open
+  (open)="onOpenSidebar()"
+  
+  // Optional | Function called after sidebar is close
+  (close)="onCloseSidebar()"
+  
+  // Optional | Function called when sidebar change visibility
+  (changeVisibility)="onChangeVisibility($event)">
+</sidebarjs-element>
+```
 
-## Build
+## Implementation
+### Import Module
+```js
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+import { SidebarjsModule } from 'ng-sidebarjs';
 
-## Running unit tests
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    SidebarjsModule.forRoot()
+  ],
+  bootstrap: [
+    AppComponent
+  ]
+})
+export class AppModule { }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Create `sidebarjs-element`
+Write **sidebarjs-element** tag and a trigger element with just **[sidebarjsToggle|sidebarjsOpen|sidebarjsClose]** attribute.
+```html
+<div sidebarjsOpen>Open Sidebar!</div>
 
-## Running end-to-end tests
+<sidebarjs-element>
+  Hello!
+</sidebarjs-element>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Migrate from <=4.0.0 to 6.0.0
+Naming convention become camelCase consistent for all components/directives/services: everything that was SidebarJSName, now is SidebarjsName.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+|<=4.0.0|6.0.0|
+|----------|----------|
+| SidebarJSModule | SidebarjsModule |
+| SidebarJSService | SidebarjsService |
+| <sidebar-js> | <sidebarjs-element> |
+| [sidebarjsOpen] | [sidebarjsOpen] |
+| [sidebarjsClose] | [sidebarjsClose] |
+| [sidebarjsToggle] | [sidebarjsOToggle] |
