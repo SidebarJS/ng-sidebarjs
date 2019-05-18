@@ -1,9 +1,29 @@
 {
   "name": "ng-sidebarjs",
   "version": "6.0.0",
+  "description": "Create mobile sidebar/sidenav experience in Angular",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SidebarJS/ng-sidebarjs.git"
+  },
+  "author": "Lorenzo D'Ianni <lorenzodianni@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SidebarJS/ng-sidebarjs/issues"
+  },
+  "homepage": "https://github.com/SidebarJS/ng-sidebarjs#readme",
+  "keywords": [
+    "sidebar",
+    "sidenav",
+    "javascript",
+    "sidebarjs",
+    "angular"
+  ],
+  "dependencies": {
+    "sidebarjs": "6.0.0"
+  },
   "peerDependencies": {
     "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0",
-    "sidebarjs": "6.0.0"
+    "@angular/core": "^7.2.0"
   }
 }

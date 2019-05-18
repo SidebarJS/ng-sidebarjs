@@ -1,7 +1,13 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ng-sidebarjs",
+  "whitelistedNonPeerDependencies": [
+    "sidebarjs"
+  ],
   "lib": {
-    "entryFile": "src/public-api.ts"
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "sidebarjs": "sidebarjs"
+    }
   }
 }
