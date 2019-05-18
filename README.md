@@ -71,13 +71,13 @@ Write **sidebarjs-element** tag and a trigger element with just **[sidebarjsTogg
 ```
 
 ## Migrate from <=4.0.0 to 6.0.0
-Naming convention become camelCase consistent for all components/directives/services: everything that was SidebarJSName, now is SidebarjsName.
+Naming convention become consistent for all components/directives/services: everything that was SidebarJSName, now is SidebarjsName.
 
 |<=4.0.0|6.0.0|
 |----------|----------|
 | SidebarJSModule | SidebarjsModule |
 | SidebarJSService | SidebarjsService |
-| <sidebar-js> | <sidebarjs-element> |
+| \<sidebar-js\> | \<sidebarjs-element\> |
 | [sidebarjsOpen] | [sidebarjsOpen] |
 | [sidebarjsClose] | [sidebarjsClose] |
-| [sidebarjsToggle] | [sidebarjsOToggle] |
+| [sidebarjsToggle] | [sidebarjsToggle] |
