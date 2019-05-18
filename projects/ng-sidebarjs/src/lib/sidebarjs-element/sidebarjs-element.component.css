@@ -1,0 +1,7 @@
+sidebarjs-element[sidebarjs] {
+  transition-delay: .3s;
+}
+
+sidebarjs-element[sidebarjs].sidebarjs--is-visible {
+  transition-delay: 0s;
+}

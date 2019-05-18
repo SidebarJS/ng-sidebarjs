@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SidebarjsComponent } from './sidebarjs.component';
+import { SidebarjsElementComponent } from './sidebarjs-element.component';
 import { SidebarjsService } from '../sidebarjs.service';
 import { SidebarjsMock } from '../sidebarjs.service.spec';
 import { Component } from '@angular/core';
@@ -12,17 +12,17 @@ import { SidebarConfig } from 'sidebarjs';
 class TestComponent {
 }
 
-describe('SidebarjsComponent', () => {
+describe('SidebarjsElement', () => {
   let service: SidebarjsService;
-  let component: SidebarjsComponent;
-  let fixture: ComponentFixture<SidebarjsComponent>;
+  let component: SidebarjsElementComponent;
+  let fixture: ComponentFixture<SidebarjsElementComponent>;
   let nativeElement: HTMLElement;
   let spyCreate: jasmine.Spy;
   let spyDestroy: jasmine.Spy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SidebarjsComponent],
+      declarations: [SidebarjsElementComponent],
       providers: [{provide: SidebarjsService, useFactory: () => SidebarjsMock}]
     })
     .compileComponents();
@@ -30,7 +30,7 @@ describe('SidebarjsComponent', () => {
 
   beforeEach(() => {
     service = TestBed.get(SidebarjsService);
-    fixture = TestBed.createComponent(SidebarjsComponent);
+    fixture = TestBed.createComponent(SidebarjsElementComponent);
     component = fixture.componentInstance;
     nativeElement = fixture.nativeElement;
     fixture.detectChanges();

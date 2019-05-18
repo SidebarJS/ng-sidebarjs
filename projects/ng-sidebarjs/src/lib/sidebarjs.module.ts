@@ -1,22 +1,20 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SidebarjsComponent } from './sidebar/sidebarjs.component';
+import { SidebarjsElementComponent } from './sidebarjs-element/sidebarjs-element.component';
 import { SidebarjsToggleDirective } from './sidebarjs-toggle.directive';
 import { SidebarjsOpenDirective } from './sidebarjs-open.directive';
 import { SidebarjsCloseDirective } from './sidebarjs-close.directive';
 import { SidebarjsService } from './sidebarjs.service';
-import { TestDirective } from './test.directive';
 
 @NgModule({
   imports: [],
   declarations: [
-    SidebarjsComponent,
+    SidebarjsElementComponent,
     SidebarjsToggleDirective,
     SidebarjsOpenDirective,
     SidebarjsCloseDirective,
-    TestDirective,
   ],
   exports: [
-    SidebarjsComponent,
+    SidebarjsElementComponent,
     SidebarjsToggleDirective,
     SidebarjsOpenDirective,
     SidebarjsCloseDirective,

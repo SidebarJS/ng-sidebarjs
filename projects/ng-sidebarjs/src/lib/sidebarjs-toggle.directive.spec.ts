@@ -1,4 +1,4 @@
-import { Component, DebugElement, OnDestroy } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SidebarjsToggleDirective } from './sidebarjs-toggle.directive';
 import { SidebarjsService } from './sidebarjs.service';

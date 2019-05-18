@@ -15,16 +15,16 @@ import {
 import { SidebarjsService, SidebarConfig } from '../sidebarjs.service';
 
 @Component({
-  selector: 'sidebarjs',
-  templateUrl: './sidebarjs.component.html',
+  selector: 'sidebarjs-element',
+  templateUrl: './sidebarjs-element.component.html',
   styleUrls: [
     './../../../../../node_modules/sidebarjs/src/sidebarjs.scss',
-    './sidebarjs.component.css',
+    './sidebarjs-element.component.css',
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SidebarjsComponent implements AfterContentInit, OnDestroy {
+export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
 
   @Input() sidebarjsName = '';
   @Input() sidebarjsConfig: SidebarConfig = {};
