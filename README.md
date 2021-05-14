@@ -70,10 +70,10 @@ Write **sidebarjs-element** tag and a trigger element with just **[sidebarjsTogg
 </sidebarjs-element>
 ```
 
-## Migrate from <=4.0.0 to 6.0.0
+## Migrate from <=4.0.0 to >=6.0.0
 Naming convention become consistent: everything that was SidebarJSName, now is SidebarjsName.
 
-|<=4.0.0|6.0.0|
+|<=4.0.0|>=6.0.0|
 |----------|----------|
 | SidebarJSModule | SidebarjsModule |
 | SidebarJSService | SidebarjsService |

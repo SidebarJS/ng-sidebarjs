@@ -33,8 +33,8 @@ export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
   @Output() close: EventEmitter<void> = new EventEmitter();
   @Output() changeVisibility: EventEmitter<{ isVisible: boolean }> = new EventEmitter();
 
-  @ViewChild('container') container: ElementRef<HTMLElement>;
-  @ViewChild('backdrop') backdrop: ElementRef<HTMLElement>;
+  @ViewChild('container', {static: true}) container?: ElementRef<HTMLElement>;
+  @ViewChild('backdrop', {static: true}) backdrop?: ElementRef<HTMLElement>;
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
@@ -67,8 +67,8 @@ export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
   private defineConfigDomElements() {
     return {
       component: this.elementRef.nativeElement,
-      container: this.container.nativeElement,
-      backdrop: this.backdrop.nativeElement,
+      container: this.container?.nativeElement,
+      backdrop: this.backdrop?.nativeElement,
     };
   }
 }

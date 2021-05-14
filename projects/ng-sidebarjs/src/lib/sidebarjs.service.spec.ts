@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
 import { SidebarjsService } from './sidebarjs.service';
+import { SidebarConfig, SidebarPosition } from 'sidebarjs';
 
 export const SidebarjsMock = {
-  create: (config) => 'sidebarjsMock',
-  elemHasListener: (element) => 'sidebarjsMock',
-  open: (name) => 'sidebarjsMock',
-  close: (name) => 'sidebarjsMock',
-  toggle: (name) => 'sidebarjsMock',
-  destroy: (name) => 'sidebarjsMock'
+  create: (config: SidebarConfig) => 'sidebarjsMock',
+  elemHasListener: (element: HTMLElement) => 'sidebarjsMock',
+  open: (name: string) => 'sidebarjsMock',
+  close: (name: string) => 'sidebarjsMock',
+  toggle: (name: string) => 'sidebarjsMock',
+  destroy: (name: string) => 'sidebarjsMock'
 };
 
 export const createSidebar = (sidebarName: string = '') => {
@@ -76,9 +77,9 @@ describe('SidebarjsService', () => {
 
   it('should change position', () => {
     const instance = service.create(createSidebar());
-    expect(instance.position).toBe('left');
-    service.setPosition('right');
-    expect(instance.position).toBe('right');
+    expect(instance.position).toBe('left' as SidebarPosition);
+    service.setPosition('right' as SidebarPosition);
+    expect(instance.position).toBe('right' as SidebarPosition);
   });
 
   it('should check/set listener property', () => {
