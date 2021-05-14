@@ -1,0 +1,20 @@
+<button sidebarjsToggle="one">toggle one</button>
+<button sidebarjsToggle="two">toggle two</button>
+
+<sidebarjs-element
+  sidebarjsName="one"
+  (changeVisibility)="onEvent($event)"
+  (open)="onEvent($event)"
+  (close)="onEvent($event)">
+  One
+</sidebarjs-element>
+
+<sidebarjs-element
+  sidebarjsName="two"
+  [sidebarjsConfig]="sidebarConfig"
+  (changeVisibility)="onEvent($event)"
+  (open)="onEvent($event)"
+  (close)="onEvent($event)">
+  Two
+</sidebarjs-element>
+
