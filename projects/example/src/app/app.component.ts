@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { SidebarConfig, SidebarjsService } from 'ng-sidebarjs';
-import { SidebarPosition } from 'sidebarjs';
+import { SidebarConfig, SidebarjsService, SidebarPosition } from 'ng-sidebarjs';
 
 @Component({
   selector: 'example-root',

@@ -21,10 +21,10 @@
   ],
   "dependencies": {
     "sidebarjs": "9.0.0",
-    "tslib": "^2.1.0"
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "@angular/common": "^13.0.0",
-    "@angular/core": "^13.0.0"
+    "@angular/common": "^14.0.0",
+    "@angular/core": "^14.0.0"
   }
 }
