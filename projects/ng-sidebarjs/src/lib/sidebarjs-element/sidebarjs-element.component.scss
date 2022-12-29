@@ -1,0 +1,9 @@
+@import './../../../../../node_modules/sidebarjs/src/sidebarjs.scss';
+
+sidebarjs-element[sidebarjs] {
+  transition-delay: $duration;
+
+  &.sidebarjs--is-visible {
+    transition-delay: 0s;
+  }
+}

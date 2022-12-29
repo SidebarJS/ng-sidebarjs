@@ -17,10 +17,7 @@ import { SidebarjsService, SidebarConfig } from '../sidebarjs.service';
 @Component({
   selector: 'sidebarjs-element',
   templateUrl: './sidebarjs-element.component.html',
-  styleUrls: [
-    './../../../../../node_modules/sidebarjs/src/sidebarjs.scss',
-    './sidebarjs-element.component.css',
-  ],
+  styleUrls: ['./sidebarjs-element.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

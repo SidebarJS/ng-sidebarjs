@@ -4,4 +4,4 @@ export {
   HTMLSidebarElement,
   SidebarBase,
   SidebarPosition
-}from 'sidebarjs';
+} from 'sidebarjs';

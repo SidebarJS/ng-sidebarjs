@@ -5,9 +5,6 @@
     "sidebarjs"
   ],
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "sidebarjs": "sidebarjs"
-    }
+    "entryFile": "src/public-api.ts"
   }
 }
