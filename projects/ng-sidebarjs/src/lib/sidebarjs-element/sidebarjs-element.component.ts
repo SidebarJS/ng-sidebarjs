@@ -29,12 +29,14 @@ export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
   @Input() sidebarjsName = '';
   @Input() sidebarjsConfig: SidebarConfig = {};
 
+  // tslint:disable-next-line:no-output-native
   @Output() open: EventEmitter<void> = new EventEmitter();
+  // tslint:disable-next-line:no-output-native
   @Output() close: EventEmitter<void> = new EventEmitter();
   @Output() changeVisibility: EventEmitter<{ isVisible: boolean }> = new EventEmitter();
 
-  @ViewChild('container') container: ElementRef<HTMLElement>;
-  @ViewChild('backdrop') backdrop: ElementRef<HTMLElement>;
+  @ViewChild('container') container?: ElementRef<HTMLElement>;
+  @ViewChild('backdrop') backdrop?: ElementRef<HTMLElement>;
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
@@ -45,11 +47,15 @@ export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
     this.changeDetectorRef.detach();
   }
 
-  ngAfterContentInit() {
+  ngAfterContentInit(): void {
     const baseConfig = this.defineConfigDomElements();
     this.renderer.setAttribute(baseConfig.component, 'sidebarjs', this.sidebarjsName);
-    this.renderer.setAttribute(baseConfig.container, 'sidebarjs-container', '');
-    this.renderer.setAttribute(baseConfig.backdrop, 'sidebarjs-backdrop', '');
+    if (baseConfig.container) {
+      this.renderer.setAttribute(baseConfig.container, 'sidebarjs-container', '');
+    }
+    if (baseConfig.backdrop) {
+      this.renderer.setAttribute(baseConfig.backdrop, 'sidebarjs-backdrop', '');
+    }
     this.sidebarjsService.create({
       ...this.sidebarjsConfig,
       ...baseConfig,
@@ -60,15 +66,19 @@ export class SidebarjsElementComponent implements AfterContentInit, OnDestroy {
     this.changeDetectorRef.detectChanges();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sidebarjsService.destroy(this.sidebarjsName);
   }
 
-  private defineConfigDomElements() {
+  private defineConfigDomElements(): {
+    component: HTMLElement
+    container: HTMLElement | undefined
+    backdrop: HTMLElement | undefined
+  } {
     return {
       component: this.elementRef.nativeElement,
-      container: this.container.nativeElement,
-      backdrop: this.backdrop.nativeElement,
+      container: this.container && this.container.nativeElement ? this.container.nativeElement : undefined,
+      backdrop: this.backdrop && this.backdrop.nativeElement ? this.backdrop.nativeElement : undefined,
     };
   }
 }
