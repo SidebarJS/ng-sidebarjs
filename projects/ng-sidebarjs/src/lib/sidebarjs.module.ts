@@ -21,7 +21,7 @@ import { SidebarjsService } from './sidebarjs.service';
   ],
 })
 export class SidebarjsModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<SidebarjsModule> {
     return {
       ngModule: SidebarjsModule,
       providers: [SidebarjsService],

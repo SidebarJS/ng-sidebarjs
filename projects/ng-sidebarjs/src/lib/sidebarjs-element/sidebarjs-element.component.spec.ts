@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { SidebarConfig } from 'sidebarjs';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'test-component',
   template: '<sidebarjs>foo</sidebarjs>',
 })

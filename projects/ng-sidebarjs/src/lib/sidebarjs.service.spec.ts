@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { SidebarjsService } from './sidebarjs.service';
+import { SidebarjsService, SidebarConfig, HTMLSidebarElement } from './sidebarjs.service';
 
 export const SidebarjsMock = {
-  create: (config) => 'sidebarjsMock',
-  elemHasListener: (element) => 'sidebarjsMock',
-  open: (name) => 'sidebarjsMock',
-  close: (name) => 'sidebarjsMock',
-  toggle: (name) => 'sidebarjsMock',
-  destroy: (name) => 'sidebarjsMock'
+  create: (config: SidebarConfig) => 'sidebarjsMock',
+  elemHasListener: (element: HTMLSidebarElement) => 'sidebarjsMock',
+  open: (name: string) => 'sidebarjsMock',
+  close: (name: string) => 'sidebarjsMock',
+  toggle: (name: string) => 'sidebarjsMock',
+  destroy: (name: string) => 'sidebarjsMock'
 };
 
 export const createSidebar = (sidebarName: string = '') => {

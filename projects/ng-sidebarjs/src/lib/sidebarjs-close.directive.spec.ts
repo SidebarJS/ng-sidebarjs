@@ -6,6 +6,7 @@ import { SidebarjsMock } from './sidebarjs.service.spec';
 import { By } from '@angular/platform-browser';
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'test-component',
   template: '<button sidebarjsClose></button><button sidebarjsClose="fooSidebar"></button>',
 })

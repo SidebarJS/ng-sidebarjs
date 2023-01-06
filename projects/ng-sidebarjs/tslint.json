@@ -6,6 +6,12 @@
       "attribute",
       "sidebarjs",
       "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "sidebarjs",
+      "kebab-case"
     ]
   }
 }

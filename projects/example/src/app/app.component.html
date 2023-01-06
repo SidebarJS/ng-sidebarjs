@@ -1,0 +1,16 @@
+<header>
+  <div class="icon hamburger-icon" sidebarjsToggle></div>
+  <h1>Angular SidebarJS</h1>
+</header>
+
+<sidebarjs-element
+  (open)="onOpen()"
+  (close)="onClose()"
+  (changeVisibility)="onChangeVisibility($event)"
+>
+  <a
+    class="img large-img github"
+    href="https://github.com/SidebarJS/ng-sidebarjs"
+    target="blank"
+  ></a>
+</sidebarjs-element>
